@@ -1,0 +1,26 @@
+.flexList {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.existingTags {
+  font-size: small;
+  margin-top: 5px;
+}
+
+.tag {
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-right: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.disabled {
+  font-weight: lighter;
+}
