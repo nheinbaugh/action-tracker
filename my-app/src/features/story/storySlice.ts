@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "../../app/store"
+import { Session } from "../../models/Session";
 import { StoryAction } from "../../models/StoryAction";
 
 export interface StoryState {
   players: Array<string>,// this will be a real class
   actors: Array<string>, // this will be a real class
-  actions: Array<StoryAction>, // this will be a real class
+  sessions: Array<Session>,
+  actions: Array<StoryAction>, // this should be moved....
   tags: Array<string>
 }
 
@@ -14,6 +16,7 @@ const initialState: StoryState = {
   players: ['Bob', 'Chip', 'Dale'],
   actors: ['Zariel', 'Bel', 'Tiamat'],
   actions: [],
+  sessions: [],
   tags: ['Cool Quote', 'Epic Action', 'Funny', 'Major Decision Point']
 }
 

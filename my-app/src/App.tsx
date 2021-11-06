@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import { LogCreator } from './features/LogCreator/LogCreator';
+import { LogCreator } from './features/Log/LogCreator';
 import SessionOverview from './features/Session/SessionOverview';
 
 

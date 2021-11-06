@@ -1,20 +1,34 @@
-import { stringify } from 'querystring';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
+import { Session } from '../../models/Session';
+import ActionListItem from '../Log/ActionListItem';
 import { selectActions } from '../story/storySlice';
 
-const SessionOverview: React.FC = (props) => {
+interface SessionOverviewProps {
+  session: Session;
+}
+
+const SessionOverview: React.FC<SessionOverviewProps> = ({session}) => {
   const actions = useAppSelector(selectActions);
+
+  const buildActionList = () => {
+    if (!session || !session.actions) {
+      return <span>Nothing of note happened</span>
+    } else {
+      return session.actions.map(a => {
+        return <div>
+          <ActionListItem action={a}></ActionListItem>
+          </div>;
+      });
+    }
+  }
+
   return (
     <>
       <div>
         Your session info here
-        {actions.map(a => {
-          return <div>
-            {"Actor was " + a.focalPoint + ", action was " + a.actionText + ". I gave it these tags " + a.tags?.join(', ')}
-            </div>;
-        })}
+        {buildActionList()}
       </div>
       <Link to="/log">Create New Log</Link>
     </>
